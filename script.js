@@ -72,7 +72,7 @@ function loadImage(index) {
 		_fillNode.style.width = ''+index/maxPokemon*100+'%';
 		loadImage(index + 1);
 	};
-	_tmpImage.src = 'images/' + index + '.png';
+	_tmpImage.src = 'Icons/' + index + '.png';
 }
 
 function createIntegerArray(startValue, endValue) {
@@ -203,7 +203,7 @@ undo = function() {
    //update the top 10 grid
    if(pokemonList.length + 1 <= topGridImgArray.length)
 	{
-		topGridImgArray[pokemonList.length].src = 'images/fill.png';
+		topGridImgArray[pokemonList.length].src = 'Icons/fill.png';
 	}
    
    //update the eliminated count
@@ -211,10 +211,10 @@ undo = function() {
    
    
    //pokemonList, etc. should be ready now, so let's update the pokemon
-   document.querySelector('#' + _history.saved.sourceId + ' img').src = 'images/'+_history.saved.value + '.png';
+   document.querySelector('#' + _history.saved.sourceId + ' img').src = 'Icons/'+_history.saved.value + '.png';
    document.querySelector('#' + _history.saved.sourceId + ' img').setAttribute('dexnumber', _history.saved.value);
    document.querySelector('#' + _history.saved.sourceId + ' img').title = _history.saved.value;
-   document.querySelector('#' + _history.deleted.sourceId + ' img').src = 'images/'+_history.deleted.value + '.png';
+   document.querySelector('#' + _history.deleted.sourceId + ' img').src = 'Icons/'+_history.deleted.value + '.png';
    document.querySelector('#' + _history.deleted.sourceId + ' img').setAttribute('dexnumber', _history.deleted.value);
    document.querySelector('#' + _history.deleted.sourceId + ' img').title = _history.deleted.value;
    
@@ -258,8 +258,8 @@ resetGame = function() {
 	document.getElementById('button-reset').style.display = 'none';
 	document.getElementById('button-skip').disabled = true;
 	document.getElementById('button-undo').disabled = true;
-	document.querySelector('#pkm1 img').src = 'images/egg.png';
-	document.querySelector('#pkm2 img').src = 'images/egg.png';
+	document.querySelector('#pkm1 img').src = 'Icons/egg.png';
+	document.querySelector('#pkm2 img').src = 'Icons/egg.png';
 	document.querySelector('#pkm1 img').onclick = startGame;
 	document.querySelector('#pkm2 img').onclick = startGame;
 	document.querySelector('#pkm1 img').removeAttribute('dexnumber');
@@ -325,14 +325,14 @@ generatePokemon = function(callLocation, updateUndo) {
 		}
 		
 		//update pkm1 and pkm2
-		callLocation.src = 'images/' + pkmId + '.png';
+		callLocation.src = 'Icons/' + pkmId + '.png';
 		callLocation.setAttribute('dexnumber', pkmId);
 		callLocation.onclick = function(e) { generatePokemon(this, true); };
 		callLocation.title = callLocation.getAttribute('dexnumber');
 		
 		pkmId = Array.removeRandom(pokemonList);
 		
-		uncalledLocation.src = 'images/' + pkmId + '.png';
+		uncalledLocation.src = 'Icons/' + pkmId + '.png';
 		uncalledLocation.setAttribute('dexnumber', pkmId);
 		uncalledLocation.onclick = function(e) { generatePokemon(this, true); };
 		uncalledLocation.title = uncalledLocation.getAttribute('dexnumber');
